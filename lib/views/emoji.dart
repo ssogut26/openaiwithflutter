@@ -2,18 +2,18 @@ import 'package:chatai/model/text_generation.dart';
 import 'package:chatai/services/network.dart';
 import 'package:flutter/material.dart';
 
-class TextView extends StatefulWidget {
-  const TextView({super.key});
+class MovieToEmojiView extends StatefulWidget {
+  const MovieToEmojiView({super.key});
 
   @override
-  State<TextView> createState() => _TextViewState();
+  State<MovieToEmojiView> createState() => _MovieToEmojiViewState();
 }
 
-class _TextViewState extends State<TextView> {
+class _MovieToEmojiViewState extends State<MovieToEmojiView> {
   final TextEditingController _controller = TextEditingController();
 
   Future<String?> getTexts(String prompt) async {
-    final get = OpenAiService().createText(prompt);
+    final get = OpenAiService().movieToEmoji(prompt);
     return get.then(
       (value) => Choice()
           .fromJson(
@@ -70,7 +70,7 @@ class _TextViewState extends State<TextView> {
                   ],
                 ),
               ),
-              if (_controller.text == '' || getText == '' || isLoading == false)
+              if (_controller.text == '' || getText == '')
                 const SizedBox(
                   height: 270,
                   child: Card(
@@ -83,9 +83,10 @@ class _TextViewState extends State<TextView> {
               else
                 SizedBox(
                   height: 270,
+                  width: MediaQuery.of(context).size.width,
                   child: Card(
                     elevation: 2,
-                    child: Text(getText),
+                    child: Center(child: Text(getText)),
                   ),
                 )
             ],

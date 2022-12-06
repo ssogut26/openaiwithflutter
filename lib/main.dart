@@ -1,6 +1,8 @@
+import 'package:chatai/views/chat.dart';
+import 'package:chatai/views/emoji.dart';
 import 'package:chatai/views/home.dart';
 import 'package:chatai/views/image.dart';
-import 'package:chatai/views/text.dart';
+import 'package:chatai/views/translate.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,8 +21,10 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomeView(),
       routes: {
-        '/text': (context) => const TextView(),
+        '/emoji': (context) => const MovieToEmojiView(),
         '/image': (context) => const ImageView(),
+        '/chat': (context) => const ChatView(),
+        '/translate': (context) => const TranslateView(),
       },
     );
   }

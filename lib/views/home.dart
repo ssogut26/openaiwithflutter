@@ -33,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
                     Navigator.pushNamed(context, '/text');
                   },
                   child: const SelectionContainer(
-                    text: 'Go to Text Generator',
+                    text: 'Go to Movie to Emoji Generator',
                     color: Colors.red,
                   ),
                 )
@@ -44,14 +44,24 @@ class _HomeViewState extends State<HomeView> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                SelectionContainer(
-                  text: 'Will be added soon',
-                  color: Colors.yellow,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/translate');
+                  },
+                  child: const SelectionContainer(
+                    text: 'Go to translation',
+                    color: Colors.yellow,
+                  ),
                 ),
-                SelectionContainer(
-                  color: Colors.green,
-                  text: 'Will be added soon',
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/chat');
+                  },
+                  child: const SelectionContainer(
+                    color: Colors.green,
+                    text: 'Chat with OpenAI',
+                  ),
                 ),
               ],
             ),

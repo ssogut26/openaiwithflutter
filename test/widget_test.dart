@@ -12,7 +12,7 @@ void main() {
   test(
     'OpenAiService create text',
     () async {
-      final get = OpenAiService().createText('Hello');
+      final get = OpenAiService().movieToEmoji('Hello');
       expect(get, isNotNull);
     },
   );
